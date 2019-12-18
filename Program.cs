@@ -7,7 +7,8 @@ namespace Reversi
     class Reversi : Form
     {
         //declaraties
-        int columns, rows;
+        int columns, rows, vakjex, vakjey;
+        int aantalBlauw, aantalRood;
         Button helpButton = new Button();
         Button nieuwSpelButton = new Button();
 
@@ -17,17 +18,13 @@ namespace Reversi
         Label labelAantalBl = new Label();
         Label labelAantalRo = new Label();
 
-
         Panel bord = new Panel();
         TextBox rijTxtBox = new TextBox();
         TextBox kolomTxtBox = new TextBox();
         Vakje[,] stand;
-        bool beurt;
-        bool help;
+        bool beurt, help;
 
-
-
-
+        int counter = 0; //?
 
         enum Vakje { Leeg, Blauw, Rood, Mogelijk };
 
@@ -71,7 +68,7 @@ namespace Reversi
             //opmaak en plaatsing tekst aan zet
             aanZetLabel.Location = new Point(50, 80);
             aanZetLabel.Font = new Font("Cambria", 15, FontStyle.Bold);
-            aanZetLabel.Size = new Size(200, 25);
+            aanZetLabel.Size = new Size(300, 25);
             aanZetLabel.Text = "Blauw is aan zet";
 
             //Opmaak speelbord
@@ -96,15 +93,14 @@ namespace Reversi
             help = false;
 
 
-
             //Array
             stand = new Vakje[rows, columns];
 
             //eventhandlers
             bord.Paint += TekenForm;
-            nieuwSpelButton.MouseClick += begin;
+            nieuwSpelButton.MouseClick += Begin;
             helpButton.MouseClick += HelpFunctie;
-            bord.MouseClick += legSteen;
+            bord.MouseClick += LegSteen;
 
             //beginscherm, grootte beginveld
             kolomTxtBox.Text = "10";
@@ -112,7 +108,8 @@ namespace Reversi
             labelAantalBl.Text = "Aantal Blauw: 2 ";
             labelAantalRo.Text = "Aantal Rood: 2 ";
 
-            begin(null, null);
+            Begin(null, null);
+
 
             //toevoegen
             Controls.Add(bord);
@@ -125,23 +122,19 @@ namespace Reversi
             Controls.Add(kolomLabel);
             Controls.Add(labelAantalBl);
             Controls.Add(labelAantalRo);
-
         }
 
 
-        void begin(object o, MouseEventArgs mea)
+        void Begin(object o, MouseEventArgs mea)
         {
             columns = int.Parse(kolomTxtBox.Text); //max waarde instellen
             rows = int.Parse(rijTxtBox.Text);
 
             stand = new Vakje[rows, columns]; //lege waardes in array zetten
             for (int x = 0; x < rows; x++)
-            {
                 for (int y = 0; y < rows; y++)
-                {
                     stand[x, y] = Vakje.Leeg;
-                }
-            }
+
 
             //stenen in het midden scherm
             stand[rows / 2 - 1, columns / 2] = Vakje.Blauw;
@@ -150,192 +143,163 @@ namespace Reversi
             stand[rows / 2 - 1, columns / 2 - 1] = Vakje.Rood;
             stand[rows / 2, columns / 2 - 1] = Vakje.Blauw;
 
-            zieMogelijkheden(Vakje.Blauw);
+            ZieMogelijkheden(Vakje.Blauw);
 
 
             labelAantalBl.Text = "Aantal blauw: 2 ";
             labelAantalRo.Text = "Aantal Rood: 2 ";
 
             bord.Invalidate();
-
         }
-
-
-
 
 
         void HelpFunctie(object o, MouseEventArgs mea)
         {
-
             help = !help;
             bord.Invalidate();
-
         }
 
 
-        void legSteen(object o, MouseEventArgs mea) //na klik wordt steen op goede plek geplaatst
+        void LegSteen(object o, MouseEventArgs mea) //na klik wordt steen op goede plek geplaatst
         {
             int clickx;
             int clicky;
 
-            clickx = mea.Location.X / 50; // variabele maken?
-            clicky = mea.Location.Y / 50;
+            clickx = mea.Location.X / vakjex; // variabele maken?
+            clicky = mea.Location.Y / vakjey;
 
             //afwisselen steenkleur afhankelijk van wie de beurt heeft
 
-            if ((beurt == true) && (stand[clickx,clicky] == Vakje.Mogelijk)) //beurt aan blauw
+            if ((beurt == true) && (stand[clickx, clicky] == Vakje.Mogelijk)) //beurt aan blauw
             {
                 stand[clickx, clicky] = Vakje.Blauw; //neergezette steen wordt blauw
                 Insluiten(clickx, clicky, Vakje.Blauw); //ingesloten stenen worden blauw
 
                 beurt = false;
-                zieMogelijkheden(Vakje.Rood);//zie waar gezet kan worden voor rode steen
-
-
-
+                ZieMogelijkheden(Vakje.Rood);//zie waar gezet kan worden voor rode steen
 
                 aanZetLabel.Text = "Rood is aan zet";
                 AantalStenen();
-
             }
             else if ((beurt == false) && stand[clickx, clicky] == Vakje.Mogelijk) //beurt aan rood
             {
                 stand[clickx, clicky] = Vakje.Rood; //neergezette steen wordt rood
                 Insluiten(clickx, clicky, Vakje.Rood); //ingesloten stenen worden rood
 
-
                 beurt = true;
-                zieMogelijkheden(Vakje.Blauw); //zie waar gezet kan worden voor blauwe steen
-
-
-
+                ZieMogelijkheden(Vakje.Blauw); //zie waar gezet kan worden voor blauwe steen
 
                 aanZetLabel.Text = "Blauw is aan zet";
                 AantalStenen();
-
             }
-
 
 
             bord.Invalidate();
         }
-
 
 
 
         void AantalStenen()
         {
-
-        int aantalBlauw = 0;
-        int aantalRood = 0;
-
-        for (int x = 0; x < stand.GetLength(0); x++)
-            {
-                for (int y = 0; y < stand.GetLength(1); y++)
-                {
-                    if (stand[x,y] == Vakje.Blauw)
-                        aantalBlauw++;
-
-                    if (stand[x, y] == Vakje.Rood)
-                        aantalRood++;
-
-                }
-            }
-
-
-            labelAantalBl.Text = "Aantal Blauw: " + Convert.ToString(aantalBlauw);
-            labelAantalRo.Text = "Aantal Rood: " + Convert.ToString(aantalRood);
-
-            bord.Invalidate();
-
-
-        }
-
-
-        void TekenForm(object o, PaintEventArgs pea)
-        {
-            int x;
-            int y;
-
-            // teken veld
-            Pen p = Pens.Black;
-            for (x = 0; x < rows; x++)
-            {
-                for (y = 0; y < columns; y++)
-                {
-                    pea.Graphics.DrawRectangle(p, 50 * x, 50 * y, 50, 50); //tekenen bord
-
-                    if (stand[x, y] == Vakje.Rood)
-                    {
-                        Brush b = Brushes.Red;
-                        pea.Graphics.FillEllipse(b, x * 50, y * 50, 50, 50); //tekenen rode steen
-                    }
-
-                    if (stand[x, y] == Vakje.Blauw)
-                    {
-                        Brush b2 = Brushes.Blue;
-                        pea.Graphics.FillEllipse(b2, x * 50, y * 50, 50, 50); //tekenen blauwe steen
-                    }
-
-
-                    if (help == true)
-                        if (stand[x, y] == Vakje.Mogelijk)
-                        {
-
-                            pea.Graphics.DrawEllipse(p, (x * 50)+ 20 , (y * 50) + 20, 10, 10); //tekenen mogelijkheden
-
-                        }
-                }
-            }
-        }
-
-
-
-
-
-
-
-        void zieMogelijkheden(Vakje kleur)
-        { /*deze methode zorgt dat de mogelijkheden uiteindelijk afgebeeld worden door
-            de lege vakjes en mogelijk vakjes in de methode valideZet te gooien */
+            aantalBlauw = 0;
+            aantalRood = 0;
 
             for (int x = 0; x < stand.GetLength(0); x++)
             {
                 for (int y = 0; y < stand.GetLength(1); y++)
                 {
+                    if (stand[x, y] == Vakje.Blauw)
+                        aantalBlauw++;
 
-                    if (stand[x, y] == Vakje.Leeg || stand[x,y] == Vakje.Mogelijk)
-                        ValideZet(x, y, kleur);
-
+                    if (stand[x, y] == Vakje.Rood)
+                        aantalRood++;
                 }
-
             }
 
+            labelAantalBl.Text = "Aantal Blauw: " + Convert.ToString(aantalBlauw);
+            labelAantalRo.Text = "Aantal Rood: " + Convert.ToString(aantalRood);
+
+            int totaal = aantalBlauw + aantalRood;
+            if (totaal == stand.Length)
+                EindStand();
+
+            bord.Invalidate();
         }
 
-
-
-
-
-        void Insluiten(int x, int y, Vakje kleur)
+        void EindStand()
         {
-            //deze methode wordt uiteindelijk aangeroepen in de clickevent waarbij voor de plek
+            if (aantalBlauw < aantalRood)
+                aanZetLabel.Text = "Rood heeft gewonnen";
 
 
-            kleurVeranderMogelijk(x,y, kleur);
+            else if (aantalRood < aantalBlauw)
+                aanZetLabel.Text = "Blauw heeft gewonnen";
 
 
+            else if (aantalRood == aantalBlauw)
+                aanZetLabel.Text = "Remise";
+        }
 
+        void TekenForm(object o, PaintEventArgs pea)
+        {
+            int x, y;
 
+            vakjex = bord.Width / rows;
+            vakjey = bord.Height / columns;
+            Pen p = Pens.Black;
+            Brush rood = Brushes.Red;
+            Brush blauw = Brushes.Blue;
 
+            // teken veld
+            for (x = 0; x < rows; x++)
+            {
+                for (y = 0; y < columns; y++)
+                {
+                    pea.Graphics.DrawRectangle(p, vakjex * x, vakjey * y, vakjex, vakjey); //tekenen bord
 
+                    if (stand[x, y] == Vakje.Rood)
+                        pea.Graphics.FillEllipse(rood, vakjex * x, vakjey * y, vakjex, vakjey); //tekenen rode steen
+
+                    if (stand[x, y] == Vakje.Blauw)
+                        pea.Graphics.FillEllipse(blauw, vakjex * x, vakjey * y, vakjex, vakjey); //tekenen blauwe steen
+
+                    if (help == true) //tekenen mogelijkheden
+                        if (stand[x, y] == Vakje.Mogelijk)
+                            pea.Graphics.DrawEllipse(p, (vakjex * x) + vakjex / 3, (vakjey * y) + vakjey / 3, 10, 10);
+                }
+            }
         }
 
 
-       void kleurVeranderMogelijk (int x, int y, Vakje kleur)
+        void ZieMogelijkheden(Vakje kleur)
+        { /*deze methode zorgt dat de mogelijkheden uiteindelijk afgebeeld worden door
+            de lege vakjes en mogelijk vakjes in de methode valideZet te gooien */
+            
+            for (int x = 0; x < stand.GetLength(0); x++)
+            {
+                for (int y = 0; y < stand.GetLength(1); y++)
+                {
+                    if (stand[x, y] == Vakje.Leeg || stand[x, y] == Vakje.Mogelijk)
+                        ValideZet(x, y, kleur);
+                }
+            }
+        }
 
-        {//deze methode checkt bij elke mogelijke richting welke stenen worden ingesloten en kleurt deze vervolgens
+        /*void VeranderSteen(int x, int y, Vakje kleur)
+        {
+            for(x )
 
+            
+
+        }*/
+
+
+
+        bool Insluiten(int x, int y, Vakje kleur)
+        {
+            //hier een methode schrijven om het insluiten te fixen
+            //alle richtingen weer checken
+            
             Vakje andereKleur = Vakje.Leeg; //beginwaarde
 
             //zorgen dat voor beide kleuren de mogelijkheden gecheckt worden
@@ -344,31 +308,41 @@ namespace Reversi
             if (kleur == Vakje.Blauw)
                 andereKleur = Vakje.Rood;
 
-            //mogelijk checken horizontaal, verticaal en diagonaal
-            if (RichtingCheck(x + 1, y, andereKleur, false, 1, 0)) //Horizontaal links naar rechts
-                KleurVeranderenCheck(x + 1, y, andereKleur, kleur, false, 1, 0);
 
-            if (RichtingCheck(x - 1, y, andereKleur, false, -1, 0)) //Horizontaal rechts naar links
-                KleurVeranderenCheck(x - 1, y, andereKleur, kleur, false, -1, 0);
+            if (KleurVeranderenCheck(x + 1, y, andereKleur, kleur, false, 1, 0))
+                return true;
 
-            if (RichtingCheck(x, y + 1, andereKleur, false, 0, 1)) //Verticaal boven naar beneden
-                KleurVeranderenCheck(x, y + 1, andereKleur, kleur, false, 0, 1);
+            else if (KleurVeranderenCheck(x - 1, y, andereKleur, kleur, false, -1, 0))
+                return true;
 
-            if (RichtingCheck(x, y - 1, andereKleur, false, 0, -1)) //Verticaal beneden naar boven
-                KleurVeranderenCheck(x, y - 1, andereKleur, kleur, false, 0, -1);
+            else if (KleurVeranderenCheck(x, y + 1, andereKleur, kleur, false, 0, 1)) //Verticaal boven naar beneden
+                return true;
 
-            if (RichtingCheck(x + 1, y + 1, andereKleur, false, 1, 1)) //diagonaal rechts naar boven
-                KleurVeranderenCheck(x + 1, y + 1, andereKleur, kleur, false, 1, 1);
+            else if (KleurVeranderenCheck(x, y - 1, andereKleur, kleur, false, 0, -1))
+                return true; //Verticaal beneden naar boven
 
-            if (RichtingCheck(x - 1, y + 1, andereKleur, false, -1, 1)) //diagonaal links naar boven
-                KleurVeranderenCheck(x - 1, y + 1, andereKleur, kleur, false, -1, 1);
+            else if (KleurVeranderenCheck(x + 1, y + 1, andereKleur, kleur, false, 1, 1))
+                return true; //diagonaal rechts naar boven
 
-            if (RichtingCheck(x - 1, y - 1, andereKleur, false, -1, -1)) //diagonaal links naar beneden
-                KleurVeranderenCheck(x - 1, y - 1, andereKleur, kleur, false, -1, -1);
+            else if (KleurVeranderenCheck(x - 1, y + 1, andereKleur, kleur, false, -1, 1))
+                return true; //diagonaal links naar boven
 
-            if (RichtingCheck(x + 1, y - 1, andereKleur, false, 1, -1)) //diagonaal  rechts naar beneden
-                KleurVeranderenCheck(x + 1, y - 1 , andereKleur, kleur, false, 1, -1);
+            else if (KleurVeranderenCheck(x - 1, y - 1, andereKleur, kleur, false, -1, -1))
+                return true; //diagonaal links naar beneden
+
+            else if (KleurVeranderenCheck(x + 1, y - 1, andereKleur, kleur, false, 1, -1))
+                return true; //diagonaal  rechts naar beneden
+
+            else return false;
         }
+
+        // void kleurverandermogelijk ()
+        // {
+
+
+
+
+        // }
 
 
 
@@ -390,18 +364,14 @@ namespace Reversi
             else if (RichtingCheck(x - 1, y, andereKleur, false, -1, 0)) //Horizontaal rechts naar links
                 stand[x, y] = Vakje.Mogelijk;
 
-
             else if (RichtingCheck(x, y + 1, andereKleur, false, 0, 1)) //Verticaal boven naar beneden
                 stand[x, y] = Vakje.Mogelijk;
-
 
             else if (RichtingCheck(x, y - 1, andereKleur, false, 0, -1)) //Verticaal beneden naar boven
                 stand[x, y] = Vakje.Mogelijk;
 
-
             else if (RichtingCheck(x + 1, y + 1, andereKleur, false, 1, 1)) //diagonaal rechts naar boven
                 stand[x, y] = Vakje.Mogelijk;
-
 
             else if (RichtingCheck(x - 1, y + 1, andereKleur, false, -1, 1)) //diagonaal links naar boven
                 stand[x, y] = Vakje.Mogelijk;
@@ -449,15 +419,11 @@ namespace Reversi
                 return false;
             }
 
-
             if (stand[x, y] == andereKleur)
-
             {
-                stand[x,y] = kleur; //de ingesloten steen wordt veranderd in de andere kleur
+                stand[x, y] = kleur; //de ingesloten steen wordt veranderd in de andere kleur
                 return KleurVeranderenCheck(x + dx, y + dy, andereKleur, kleur, true, dx, dy);//als een steen van de ander op deze plek ligt
-
             }
-
 
 
             else if (stand[x, y] == Vakje.Leeg || stand[x, y] == Vakje.Mogelijk) // als er geen steen ligt is het geen valide zet of als het vakje al mogelijk is
@@ -468,10 +434,9 @@ namespace Reversi
             {
                 return veranderbaar; //eigen steen is weer gevonden
 
+
             }
-
         }
-
     }
 
 
