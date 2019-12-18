@@ -24,9 +24,11 @@ namespace Reversi
         Vakje[,] stand;
         bool beurt;
         bool help;
-       
-       
-       
+        int counter = 0;
+        
+
+
+
         enum Vakje { Leeg, Blauw, Rood, Mogelijk };
 
         public Reversi() //constructor
@@ -186,12 +188,13 @@ namespace Reversi
 
             //afwisselen steenkleur afhankelijk van wie de beurt heeft
             
-            if ((beurt == true) && (stand[clickx,clicky] == Vakje.Mogelijk))
+            if ((beurt == true) && (stand[clickx,clicky] == Vakje.Mogelijk)) //beurt aan blauw
             {
-                stand[clickx, clicky] = Vakje.Blauw; //steen wordt rood
-                Insluiten(clickx, clicky, Vakje.Blauw);
+                stand[clickx, clicky] = Vakje.Blauw; //neergezette steen wordt blauw
+                Insluiten(clickx, clicky, Vakje.Blauw); //ingesloten stenen worden blauw
+
                 beurt = false;
-                zieMogelijkheden(Vakje.Rood);
+                zieMogelijkheden(Vakje.Rood);//zie waar gezet kan worden voor rode steen
                 
 
                 
@@ -199,13 +202,14 @@ namespace Reversi
                 AantalStenen();
 
             }
-            else if ((beurt == false) && stand[clickx, clicky] == Vakje.Mogelijk)
+            else if ((beurt == false) && stand[clickx, clicky] == Vakje.Mogelijk) //beurt aan rood
             {
-                stand[clickx, clicky] = Vakje.Rood; //steen wordt blauw
-                Insluiten(clickx, clicky, Vakje.Rood);
+                stand[clickx, clicky] = Vakje.Rood; //neergezette steen wordt rood
+                Insluiten(clickx, clicky, Vakje.Rood); //ingesloten stenen worden rood
+
                 beurt = true;
-                zieMogelijkheden(Vakje.Blauw);
-                
+                zieMogelijkheden(Vakje.Blauw); //zie waar gezet kan worden voor blauwe steen
+
 
 
                 aanZetLabel.Text = "Blauw is aan zet";
@@ -218,13 +222,61 @@ namespace Reversi
             bord.Invalidate();
         }
 
-        void AantalStenen() 
-        {
+        /*void EindStand()
+        {   
             
-            int aantalBlauw = 0;
-            int aantalRood = 0;
 
             for (int x = 0; x < stand.GetLength(0); x++)
+            {
+                for (int y = 0; y < stand.GetLength(1); y++)
+                {
+                    //if statement met als voorwaarde dat er geen vakje mogelijk in het array zit
+
+                    if (aantalBlauw <= aantalRood)
+                    {
+
+                        labelAantalBl.Text = "Rood heeft gewonnen";
+
+
+                    }
+
+                    else if (aantalRood <= aantalBlauw)
+                    {
+
+                            labelAantalBl.Text = "Blauw heeft gewonnen";
+
+
+                    }
+
+                    else if (aantalRood == aantalBlauw)
+                    {
+
+                        labelAantalBl.Text = "Remise";
+
+
+                    }
+
+
+
+
+
+
+                }
+            } 
+
+
+
+
+        }*/
+
+
+        void AantalStenen() 
+        {
+
+        int aantalBlauw = 0;
+        int aantalRood = 0;
+
+        for (int x = 0; x < stand.GetLength(0); x++)
             {
                 for (int y = 0; y < stand.GetLength(1); y++)
                 {
@@ -308,16 +360,21 @@ namespace Reversi
 
         }
 
+        /*void VeranderSteen(int x, int y, Vakje kleur)
+        {
+            for(x )
 
 
-        void Insluiten(int x, int y, Vakje kleur)
+
+        }*/
+
+
+
+        bool Insluiten(int x, int y, Vakje kleur)
         {
             //hier een methode schrijven om het insluiten te fixen 
             //alle richtingen weer checken 
             //
-
-            
-
             Vakje andereKleur = Vakje.Leeg; //beginwaarde
 
             //zorgen dat voor beide kleuren de mogelijkheden gecheckt worden 
@@ -326,38 +383,54 @@ namespace Reversi
             if (kleur == Vakje.Blauw)
                 andereKleur = Vakje.Rood;
 
-            //
-            if (KleurVeranderenCheck(x + 1, y, andereKleur, false, 1, 0)) //Horizontaal links naar rechts
-                stand[x + 1, y] = kleur;
+
+            if (KleurVeranderenCheck(x + 1, y, andereKleur, kleur, false, 1, 0))
+                return true;
+
+            else if (KleurVeranderenCheck(x - 1, y, andereKleur, kleur, false, -1, 0))
+                return true;
 
 
-            else if (KleurVeranderenCheck(x - 1, y, andereKleur, false, -1, 0)) //Horizontaal rechts naar links
-                stand[x - 1, y] = kleur;
+            else if (KleurVeranderenCheck(x, y + 1, andereKleur, kleur, false, 0, 1)) //Verticaal boven naar beneden
+                return true;
+
+            else if (KleurVeranderenCheck(x, y - 1, andereKleur, kleur, false, 0, -1))
+                return true;//Verticaal beneden naar boven 
+
+            else if (KleurVeranderenCheck(x + 1, y + 1, andereKleur, kleur, false, 1, 1))
+                return true;//diagonaal rechts naar boven
 
 
-            else if (KleurVeranderenCheck(x, y + 1, andereKleur, false, 0, 1)) //Verticaal boven naar beneden
-                stand[x, y + 1] = kleur;
+
+            else if (KleurVeranderenCheck(x - 1, y + 1, andereKleur, kleur, false, -1, 1))
+                return true;//diagonaal links naar boven 
+
+            else if (KleurVeranderenCheck(x - 1, y - 1, andereKleur, kleur, false, -1, -1))
+                return true;//diagonaal links naar beneden
+
+            else if (KleurVeranderenCheck(x + 1, y - 1, andereKleur, kleur, false, 1, -1))
+                return true;//diagonaal  rechts naar beneden 
 
 
-            else if (KleurVeranderenCheck(x, y - 1, andereKleur, false, 0, -1)) //Verticaal beneden naar boven 
-                stand[x, y - 1] = kleur;
+            else return false;
 
 
-            else if (KleurVeranderenCheck(x + 1, y + 1, andereKleur, false, 1, 1)) //diagonaal rechts naar boven
-                stand[x + 1, y + 1] = kleur;
 
 
-            else if (KleurVeranderenCheck(x - 1, y + 1, andereKleur, false, -1, 1)) //diagonaal links naar boven 
-                stand[x - 1, y + 1] = kleur;
 
-            else if (KleurVeranderenCheck(x - 1, y - 1, andereKleur, false, -1, -1)) //diagonaal links naar beneden
-                stand[x - 1, y - 1] = kleur;
 
-            else if (KleurVeranderenCheck(x + 1, y - 1, andereKleur, false, 1, -1)) //diagonaal  rechts naar beneden 
-                stand[x + 1, y - 1] = kleur;
+
 
 
         }
+
+       // void kleurverandermogelijk ()
+       // {
+
+
+
+
+       // }
 
 
 
@@ -407,7 +480,7 @@ namespace Reversi
         {  /*in deze recursieve methode wordt gekeken of een kleur de ander kan insluiten
             gevonden geeft daarbij aan dat een steen van de andere kleur is gevonden */
 
-            if (x > stand.GetLength(0) - 1 || y > stand.GetLength(1) - 1 || x < 0 || y < 0) //geen niet bestaande vakjes
+            if (x > stand.GetLength(0) - 1 || y > stand.GetLength(1) - 1 || x < 0 || y < 0) //geen niet bestaande vakjes checken
             {
                 return false;
             }
@@ -423,27 +496,40 @@ namespace Reversi
 
         }
 
-        bool KleurVeranderenCheck(int x, int y, Vakje kleur, bool gevonden, int dx, int dy)
+        bool KleurVeranderenCheck(int x, int y, Vakje andereKleur, Vakje kleur, bool veranderbaar, int dx, int dy)
         {  /*in deze recursieve methode wordt gekeken of een kleur de ander kan insluiten
             gevonden om uiteindelijk de kleur te kunnen veranderen */
 
-      
+
 
             if (x > stand.GetLength(0) - 1 || y > stand.GetLength(1) - 1 || x < 0 || y < 0) //geen niet bestaande vakjes
             {
                 return false;
             }
-            Vakje steen = stand[x, y];
-
-            if (steen == kleur)
-                return KleurVeranderenCheck(x + dx, y + dy, kleur, true, dx, dy);//als een steen van de ander op deze plek ligt
-            //iets veranderen om te checken of de kleur veranderd kan worden 
 
 
-            else if (steen == Vakje.Leeg || steen == Vakje.Mogelijk) // als er geen steen ligt is het geen valide zet of als het vakje al mogelijk is
+            if (stand[x, y] == andereKleur)
+
+            {
+                stand[x,y] = kleur; //de ingesloten steen wordt veranderd in de andere kleur
+                return KleurVeranderenCheck(x + dx, y + dy, andereKleur, kleur, true, dx, dy);//als een steen van de ander op deze plek ligt
+                                                                                       
+            }
+
+
+
+            else if (stand[x, y] == Vakje.Leeg || stand[x, y] == Vakje.Mogelijk) // als er geen steen ligt is het geen valide zet of als het vakje al mogelijk is
                 return false;
 
-            else return gevonden; //eigen steen is weer gevonden 
+            else
+
+            {
+                return veranderbaar; //eigen steen is weer gevonden 
+
+
+            }
+               
+            
 
         }
 
