@@ -24,8 +24,10 @@ namespace Reversi
         Vakje[,] stand;
         bool beurt;
         bool help;
-       
-       
+
+        int vakjex, vakjey;
+
+        
        
         enum Vakje { Leeg, Blauw, Rood, Mogelijk };
 
@@ -113,6 +115,8 @@ namespace Reversi
 
             begin(null, null);
 
+            
+
             //toevoegen
             Controls.Add(bord);
             Controls.Add(nieuwSpelButton);
@@ -181,8 +185,8 @@ namespace Reversi
             int clickx;
             int clicky;
 
-            clickx = mea.Location.X / 50; // variabele maken?
-            clicky = mea.Location.Y / 50;
+            clickx = mea.Location.X / vakjex; // variabele maken?
+            clicky = mea.Location.Y / vakjey;
 
             //afwisselen steenkleur afhankelijk van wie de beurt heeft
             
@@ -252,24 +256,27 @@ namespace Reversi
             int x;
             int y;
 
+            vakjex = bord.Width / rows;
+            vakjey = bord.Height / columns;
+
             // teken veld 
             Pen p = Pens.Black;
             for (x = 0; x < rows; x++)
             {
                 for (y = 0; y < columns; y++)
                 {
-                    pea.Graphics.DrawRectangle(p, 50 * x, 50 * y, 50, 50); //tekenen bord
+                    pea.Graphics.DrawRectangle(p, vakjex * x, vakjey * y, vakjex, vakjey); //tekenen bord
 
                     if (stand[x, y] == Vakje.Rood)
                     {
                         Brush b = Brushes.Red;
-                        pea.Graphics.FillEllipse(b, x * 50, y * 50, 50, 50); //tekenen rode steen
+                        pea.Graphics.FillEllipse(b, vakjex * x, vakjey * y, vakjex, vakjey); //tekenen rode steen
                     }
 
                     if (stand[x, y] == Vakje.Blauw)
                     {
                         Brush b2 = Brushes.Blue;
-                        pea.Graphics.FillEllipse(b2, x * 50, y * 50, 50, 50); //tekenen blauwe steen
+                        pea.Graphics.FillEllipse(b2, vakjex * x, vakjey * y, vakjex, vakjey); //tekenen blauwe steen
                     }
 
 
@@ -277,7 +284,7 @@ namespace Reversi
                         if (stand[x, y] == Vakje.Mogelijk)
                         {
                         
-                            pea.Graphics.DrawEllipse(p, (x * 50)+ 20 , (y * 50) + 20, 10, 10); //tekenen mogelijkheden
+                            pea.Graphics.DrawEllipse(p, (vakjex * x) + vakjex/3 , (vakjey * y) + vakjey/3, 10, 10); //tekenen mogelijkheden
 
                         }
                 }
