@@ -50,19 +50,19 @@ namespace Reversi
             nieuwSpelButton.BackColor = Color.AliceBlue;
 
             //Opmaak txtbox en label rij
-            rijTxtBox.Location = new Point(400, 20);
+            rijTxtBox.Location = new Point(360, 20);
             rijTxtBox.Size = new Size(25, 25);
-            rijLabel.Location = new Point(435, 20);
+            rijLabel.Location = new Point(390, 20);
             rijLabel.Size = new Size(50, 25);
-            rijLabel.Text = "Rij";
+            rijLabel.Text = "Rijen";
             rijLabel.Font = new Font("Cambria", 10, FontStyle.Bold);
 
             //Opmaak textbox en label kolom
-            kolomTxtBox.Location = new Point(400, 55);
+            kolomTxtBox.Location = new Point(360, 40);
             kolomTxtBox.Size = new Size(25, 25);
-            kolomLabel.Location = new Point(435, 60);
-            kolomLabel.Size = new Size(50, 25);
-            kolomLabel.Text = "Kolom";
+            kolomLabel.Location = new Point(390, 40);
+            kolomLabel.Size = new Size(65, 25);
+            kolomLabel.Text = "Kolommen";
             kolomLabel.Font = new Font("Cambria", 10, FontStyle.Bold);
 
             //opmaak en plaatsing tekst aan zet
@@ -78,15 +78,15 @@ namespace Reversi
             //Opmaak tekst: Aantal Blauw
             labelAantalBl.Location = new Point(220, 20);
             labelAantalBl.Font = new Font("Cambria", 10, FontStyle.Bold);
-            labelAantalBl.Size = new Size(150, 25);
+            labelAantalBl.Size = new Size(120, 25);
             labelAantalBl.ForeColor = Color.Blue;
 
 
             //Opmaak tekst: Aantal Rood
-            labelAantalRo.Location = new Point(220, 50);
+            labelAantalRo.Location = new Point(220, 40);
             labelAantalRo.Font = new Font("Cambria", 10, FontStyle.Bold);
-            labelAantalRo.Size = new Size(150, 25);
-            labelAantalRo.ForeColor = Color.Red;
+            labelAantalRo.Size = new Size(120, 20);
+            labelAantalRo.ForeColor = Color.DarkRed;
 
             //beginwaarden
             beurt = true;
@@ -127,7 +127,6 @@ namespace Reversi
 
         void Begin(object o, MouseEventArgs mea)
         {
-
             columns = int.Parse(kolomTxtBox.Text); //max waarde instellen
             rows = int.Parse(rijTxtBox.Text);
 
