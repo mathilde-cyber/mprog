@@ -120,16 +120,18 @@ namespace Reversi
             {
                 int kolomtext = int.Parse(kolomTxtBox.Text);
                 int rijtext = int.Parse(rijTxtBox.Text);
+
+                if (int.Parse(kolomTxtBox.Text) > 3 && int.Parse(kolomTxtBox.Text) < 25)
+                    if (int.Parse(rijTxtBox.Text) > 3 && int.Parse(rijTxtBox.Text) < 25)
+                    {
+                        columns = int.Parse(kolomTxtBox.Text); //max waarde instellen
+                        rows = int.Parse(rijTxtBox.Text);
+                    }
             }
             catch (FormatException e)
-            { Console.WriteLine("voer nummer in"); }
+            { Console.WriteLine(e + "voer nummer in"); }
 
-            if (int.Parse(kolomTxtBox.Text) > 3 && int.Parse(kolomTxtBox.Text) < 25)
-                if (int.Parse(rijTxtBox.Text) > 3 && int.Parse(rijTxtBox.Text) < 25)
-                {
-                    columns = int.Parse(kolomTxtBox.Text); //max waarde instellen
-                    rows = int.Parse(rijTxtBox.Text);
-                }
+            
             
             stand = new Vakje[rows, columns]; //lege waardes in array zetten
             
