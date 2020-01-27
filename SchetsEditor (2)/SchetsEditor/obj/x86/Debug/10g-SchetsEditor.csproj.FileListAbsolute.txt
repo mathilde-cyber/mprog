@@ -1,0 +1,16 @@
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\bin\Debug\Schets.exe
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\bin\Debug\Schets.pdb
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\SchetsEditor.Properties.Resources.resources
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\10g-SchetsEditor.csproj.GenerateResource.cache
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\10g-SchetsEditor.csproj.CoreCompileInputs.cache
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\Schets.exe
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\Schets.pdb
+\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\10g-SchetsEditor.csprojAssemblyReference.cache
+U:\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\10g-SchetsEditor.csprojAssemblyReference.cache
+U:\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\SchetsEditor.Properties.Resources.resources
+U:\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\10g-SchetsEditor.csproj.GenerateResource.cache
+U:\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\10g-SchetsEditor.csproj.CoreCompileInputs.cache
+U:\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\Schets.exe
+U:\My Documents\SchetsEditor (2)\SchetsEditor\obj\x86\Debug\Schets.pdb
+U:\My Documents\SchetsEditor (2)\SchetsEditor\bin\Debug\Schets.exe
+U:\My Documents\SchetsEditor (2)\SchetsEditor\bin\Debug\Schets.pdb

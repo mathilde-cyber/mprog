@@ -1,0 +1,407 @@
+﻿'Schets.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Schets.exe' (CLR v4.0.30319: DefaultDomain): Loaded '\\soliscom.uu.nl\users\6981607\My Documents\SchetsEditor (2)\SchetsEditor\bin\Debug\Schets.exe'. Symbols loaded.
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Ik teken 0 elementen
+PAINT 763
+Ik teken 0 elementen
+PAINT 774
+'Schets.exe' (CLR v4.0.30319: Schets.exe): Loaded 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll'. Cannot find or open the PDB file.
+Ik teken 0 elementen
+PAINT 205
+Ik teken 0 elementen
+PAINT 213
+Ik teken 0 elementen
+PAINT 221
+Ik teken 0 elementen
+PAINT 229
+Ik teken 0 elementen
+PAINT 238
+Ik teken 0 elementen
+PAINT 245
+Ik teken 0 elementen
+PAINT 253
+Ik teken 0 elementen
+PAINT 262
+Ik teken 0 elementen
+PAINT 269
+Ik teken 0 elementen
+PAINT 278
+Ik teken 0 elementen
+PAINT 285
+Ik teken 0 elementen
+PAINT 294
+Ik teken 0 elementen
+PAINT 301
+Ik teken 0 elementen
+PAINT 309
+Ik teken 0 elementen
+PAINT 319
+Ik teken 0 elementen
+PAINT 325
+Ik teken 0 elementen
+PAINT 333
+Ik teken 0 elementen
+PAINT 342
+Ik teken 0 elementen
+PAINT 352
+Ik teken 0 elementen
+PAINT 357
+Ik teken 0 elementen
+PAINT 365
+Ik teken 0 elementen
+PAINT 374
+Ik teken 0 elementen
+PAINT 387
+Ik teken 0 elementen
+PAINT 389
+Ik teken 0 elementen
+PAINT 399
+Ik teken 0 elementen
+PAINT 406
+Ik teken 0 elementen
+PAINT 414
+Ik teken 0 elementen
+PAINT 422
+Ik teken 0 elementen
+PAINT 430
+Ik teken 0 elementen
+PAINT 438
+Ik teken 0 elementen
+PAINT 446
+Ik teken 0 elementen
+PAINT 454
+Ik teken 0 elementen
+PAINT 465
+Ik teken 0 elementen
+PAINT 470
+Ik teken 0 elementen
+PAINT 478
+Ik teken 0 elementen
+PAINT 487
+Ik teken 0 elementen
+PAINT 493
+Ik teken 0 elementen
+PAINT 502
+Ik teken 0 elementen
+PAINT 511
+Ik teken 0 elementen
+PAINT 518
+Ik teken 0 elementen
+PAINT 526
+Ik teken 0 elementen
+PAINT 534
+Ik teken 0 elementen
+PAINT 544
+Ik teken 0 elementen
+PAINT 549
+Ik teken 0 elementen
+PAINT 558
+Ik teken 0 elementen
+PAINT 565
+Ik teken 0 elementen
+PAINT 576
+Ik teken 0 elementen
+PAINT 583
+Ik teken 0 elementen
+PAINT 589
+Ik teken 0 elementen
+PAINT 598
+Ik teken 0 elementen
+PAINT 606
+Ik teken 0 elementen
+PAINT 613
+Ik teken 0 elementen
+PAINT 622
+Ik teken 0 elementen
+PAINT 629
+Ik teken 0 elementen
+PAINT 638
+Ik teken 0 elementen
+PAINT 646
+Ik teken 0 elementen
+PAINT 654
+Ik teken 0 elementen
+PAINT 662
+Ik teken 0 elementen
+PAINT 670
+Ik teken 0 elementen
+PAINT 680
+Ik teken 0 elementen
+PAINT 694
+Ik teken 0 elementen
+PAINT 702
+Ik teken 0 elementen
+PAINT 717
+Ik teken 0 elementen
+PAINT 745
+Ik teken 0 elementen
+PAINT 758
+Ik teken 0 elementen
+PAINT 784
+Ik teken 0 elementen
+PAINT 816
+Ik teken 0 elementen
+PAINT 823
+Ik teken 0 elementen
+PAINT 833
+Ik teken 0 elementen
+PAINT 840
+Ik teken 1 elementen
+PAINT 847
+COUNT 1
+weggehaald
+haalweggum 0
+Ik teken 0 elementen
+PAINT 617
+Ik teken 0 elementen
+PAINT 571
+Ik teken 0 elementen
+PAINT 577
+Ik teken 0 elementen
+PAINT 587
+Ik teken 0 elementen
+PAINT 596
+Ik teken 0 elementen
+PAINT 611
+Ik teken 0 elementen
+PAINT 619
+Ik teken 0 elementen
+PAINT 627
+Ik teken 0 elementen
+PAINT 635
+Ik teken 0 elementen
+PAINT 643
+Ik teken 0 elementen
+PAINT 651
+Ik teken 0 elementen
+PAINT 660
+Ik teken 0 elementen
+PAINT 668
+Ik teken 0 elementen
+PAINT 674
+Ik teken 0 elementen
+PAINT 683
+Ik teken 0 elementen
+PAINT 694
+Ik teken 0 elementen
+PAINT 700
+Ik teken 0 elementen
+PAINT 707
+Ik teken 0 elementen
+PAINT 715
+Ik teken 0 elementen
+PAINT 724
+Ik teken 0 elementen
+PAINT 731
+Ik teken 0 elementen
+PAINT 741
+Ik teken 0 elementen
+PAINT 747
+Ik teken 0 elementen
+PAINT 755
+Ik teken 0 elementen
+PAINT 763
+Ik teken 0 elementen
+PAINT 772
+Ik teken 0 elementen
+PAINT 779
+Ik teken 0 elementen
+PAINT 787
+Ik teken 0 elementen
+PAINT 795
+Ik teken 0 elementen
+PAINT 803
+Ik teken 0 elementen
+PAINT 811
+Ik teken 0 elementen
+PAINT 819
+Ik teken 0 elementen
+PAINT 827
+Ik teken 0 elementen
+PAINT 835
+Ik teken 0 elementen
+PAINT 844
+Ik teken 0 elementen
+PAINT 851
+Ik teken 0 elementen
+PAINT 860
+Ik teken 0 elementen
+PAINT 867
+Ik teken 0 elementen
+PAINT 875
+Ik teken 0 elementen
+PAINT 883
+Ik teken 0 elementen
+PAINT 895
+Ik teken 0 elementen
+PAINT 899
+Ik teken 0 elementen
+PAINT 907
+Ik teken 0 elementen
+PAINT 915
+Ik teken 0 elementen
+PAINT 927
+Ik teken 0 elementen
+PAINT 931
+Ik teken 0 elementen
+PAINT 941
+Ik teken 0 elementen
+PAINT 949
+Ik teken 0 elementen
+PAINT 956
+Ik teken 0 elementen
+PAINT 966
+Ik teken 0 elementen
+PAINT 973
+Ik teken 0 elementen
+PAINT 979
+Ik teken 0 elementen
+PAINT 988
+Ik teken 0 elementen
+PAINT 996
+Ik teken 0 elementen
+PAINT 4
+Ik teken 0 elementen
+PAINT 12
+Ik teken 0 elementen
+PAINT 20
+Ik teken 0 elementen
+PAINT 37
+Ik teken 0 elementen
+PAINT 43
+Ik teken 0 elementen
+PAINT 62
+Ik teken 0 elementen
+PAINT 75
+Ik teken 0 elementen
+PAINT 96
+Ik teken 1 elementen
+PAINT 192
+Ik teken 1 elementen
+PAINT 936
+Ik teken 1 elementen
+PAINT 946
+Ik teken 1 elementen
+PAINT 951
+Ik teken 1 elementen
+PAINT 960
+Ik teken 1 elementen
+PAINT 968
+Ik teken 1 elementen
+PAINT 977
+Ik teken 1 elementen
+PAINT 986
+Ik teken 1 elementen
+PAINT 994
+Ik teken 1 elementen
+PAINT 2
+Ik teken 1 elementen
+PAINT 9
+Ik teken 1 elementen
+PAINT 21
+Ik teken 1 elementen
+PAINT 28
+Ik teken 1 elementen
+PAINT 37
+Ik teken 1 elementen
+PAINT 46
+Ik teken 1 elementen
+PAINT 53
+Ik teken 1 elementen
+PAINT 58
+Ik teken 1 elementen
+PAINT 65
+Ik teken 1 elementen
+PAINT 72
+Ik teken 1 elementen
+PAINT 79
+Ik teken 1 elementen
+PAINT 89
+Ik teken 1 elementen
+PAINT 95
+Ik teken 1 elementen
+PAINT 105
+Ik teken 1 elementen
+PAINT 119
+Ik teken 1 elementen
+PAINT 134
+Ik teken 1 elementen
+PAINT 142
+Ik teken 1 elementen
+PAINT 149
+Ik teken 1 elementen
+PAINT 154
+Ik teken 1 elementen
+PAINT 161
+Ik teken 1 elementen
+PAINT 168
+Ik teken 1 elementen
+PAINT 175
+Ik teken 1 elementen
+PAINT 187
+Ik teken 1 elementen
+PAINT 191
+Ik teken 1 elementen
+PAINT 200
+Ik teken 1 elementen
+PAINT 208
+Ik teken 1 elementen
+PAINT 215
+Ik teken 1 elementen
+PAINT 224
+Ik teken 1 elementen
+PAINT 233
+Ik teken 1 elementen
+PAINT 241
+Ik teken 1 elementen
+PAINT 247
+Ik teken 1 elementen
+PAINT 255
+Ik teken 1 elementen
+PAINT 265
+Ik teken 1 elementen
+PAINT 276
+Ik teken 1 elementen
+PAINT 280
+Ik teken 1 elementen
+PAINT 289
+Ik teken 1 elementen
+PAINT 295
+Ik teken 1 elementen
+PAINT 303
+Ik teken 1 elementen
+PAINT 311
+Ik teken 1 elementen
+PAINT 320
+Ik teken 1 elementen
+PAINT 328
+Ik teken 1 elementen
+PAINT 335
+Ik teken 1 elementen
+PAINT 344
+Ik teken 1 elementen
+PAINT 352
+Ik teken 1 elementen
+PAINT 377
+Ik teken 1 elementen
+PAINT 399
+Ik teken 2 elementen
+PAINT 463
+COUNT 2
+niet weggehaald 0
+weggehaald
+haalweggum 1
+Ik teken 1 elementen
+PAINT 237
+COUNT 1
+weggehaald
+haalweggum 0
+Ik teken 0 elementen
+PAINT 924
+The program '[18000] Schets.exe: Program Trace' has exited with code 0 (0x0).
+The program '[18000] Schets.exe' has exited with code 0 (0x0).
